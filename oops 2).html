@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<h1>Encapsulation-Static</h1>
+<script type="text/javascript">
+	class Utilties { 
+    static camelCase(str) {
+        let arr = str.split(" ");
+        for (let i = 0; i < arr.length; i++) {
+            arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+        }
+        let s= arr.join(" ");
+        return(s.split(" ").join(""));
+    }
+}
+console.log(Utilties.camelCase("hello there"));
+console.log(Utilties.camelCase("HELLO THERE"));
+console.log(Utilties.camelCase("I love cookies"));
+console.log(Utilties.camelCase("Monkey Banana"));
+</script>
+</body>
+</html>

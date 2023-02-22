@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title></title>
+</head>
+<body>
+<script>
+var personAccount = 
+{
+    firstName:'Enusha', 
+    lastName:'Manivannan',
+    incomes:{'Teaching':25000,'Retail Shop':4000,'Gardening':5000},
+    expenses:{'Rent':5000,'Education expense':15000,'EMI':5000},
+    totalIncome: function() {
+        var sum=0;
+        Object.values(personAccount.incomes).forEach(function(i){sum+=i});
+        return sum; 
+    },
+    totalExpense: function (){
+        var sum=0;
+        Object.values(personAccount.expenses).forEach(function(i){sum+=i});
+        return sum;  
+    },
+    fullName: function () {
+        return this.firstName+" "+this.lastName;
+    },
+    accountInfo:function()
+    {
+        let fullName = this.getFullName()
+        let info = `Name: ${fullName} Incomes: ${this.incomes} Expenses: ${this.expenses} Total Income: ${this.totalIncome()} Total Income: ${this.totalExpense()}`
+        return info;
+    },
+    accountBalance:function()
+    {
+        return this.totalIncome()-this.totalExpense();
+    }
+};
+    function addIncome(a,b) {
+        personAccount.incomes[a] = b; 
+    };
+    function addExpense(a,b) {
+        personAccount.expenses[a] = b; 
+    };
+var name=personAccount.fullName();
+console.log("Person's Name:"+name);
+console.log(name+"'s Income Details:");
+console.log(personAccount.incomes);
+console.log(name+"'s Total Income:"+personAccount.totalIncome());
+console.log(name+"'s Expense Details:");
+console.log(personAccount.expenses);
+console.log(name+"'s Total Expense:"+personAccount.totalExpense());
+addIncome("Freelance",7000);    
+addExpense("Medical Expense",2000);
+console.log(name+"'s Income Details After Updation:");
+console.log(personAccount.incomes);
+console.log(name+"'s Total Income After Updation:"+personAccount.totalIncome());
+console.log(name+"'s Expense Details After Updation:");
+console.log(personAccount.expenses);
+console.log(name+"'s Total Expense After Updation:"+personAccount.totalExpense());
+console.log("Account Balance:"+personAccount.accountBalance());
+</script>
+</body>
+</html>

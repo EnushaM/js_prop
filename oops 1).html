@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<script type="text/javascript">
+class Shape {
+  constructor(color) {
+    this.color = color;
+  }
+  addprop(shape='Shape') {
+      this.type=shape;
+  }
+  describe(){
+    console.log(`This object is of shape ${this.type} and is of ${this.color} color`);
+  }
+}
+
+class Square extends Shape {
+  constructor(colour,sideLength) {
+    super(colour);
+    this.sideLength = sideLength;
+  }
+  area(){
+      let area=this.sideLength*this.sideLength;
+      return area;
+  }
+}
+
+class Rectangle extends Shape {
+  constructor(colour,width,height) {
+    super(colour);
+    this.width = width;
+    this.height = height;
+  }
+  area(){
+      let area=this.width*this.height;
+      return area;
+  }
+}
+/*let sh1 = new Shape("Transparent");
+sh1.addprop();
+sh1.describe()
+
+let sq1 = new Square("Yellow",6);
+sq1.addprop("Square")
+sq1.describe()
+console.log(sq1.area())
+
+let rec1 = new Rectangle("Brown",4,5);
+rec1.addprop("Rectangle")
+rec1.describe()
+console.log(rec1.area())*/
+
+const square = new Square("blue", 5);
+const rectangle = new Rectangle("red", 5, 6);
+console.log( square.area() );
+console.log( rectangle.area() );
+for ( const shape of [square, rectangle] ) shape.describe();
+</script>
+<h1>Explanation</h1>
+<p>We've a create a parent class called "Shape" and two child class "Square and Rectangle" that extends from the parent class.We are calling super constructor colour that we initialized in the parent constructor and adding property to the classes declared in the parent class.
+
+We are creating a new instance class with arguments ""blue","6"" and ""red","5","6"" for each Square and Rectangle respectively. We are calculating the area for each object that returns "25 and 26".
+
+And we are appending the objects square and rectangle in a array and declaring a iterative variable shape and implementing such that for each shape it describe its properties. Here we are not assigning the property shape and so it shows "undefined".
+</p>
+</body>
+</html>
